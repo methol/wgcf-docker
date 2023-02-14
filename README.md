@@ -1,5 +1,6 @@
 1. Run a single container
 
+```
 docker run --name wgcf \
     --restart=always \
     --sysctl net.ipv6.conf.all.disable_ipv6=0 \
@@ -8,7 +9,7 @@ docker run --name wgcf \
     -v $(pwd)/wgcf:/wgcf \
     -p 1080:1080 \
     -d methol/wgcf-docker-socks5 -4
-
+```
 
 
 # wgcf-docker origin doc
