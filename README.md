@@ -1,4 +1,17 @@
-# wgcf-docker
+1. Run a single container
+
+docker run --name wgcf \
+    --restart=always \
+    --sysctl net.ipv6.conf.all.disable_ipv6=0 \
+    --privileged --cap-add net_admin \
+    -v /lib/modules:/lib/modules \
+    -v $(pwd)/wgcf:/wgcf \
+    -p 1080:1080 \
+    -d methol/wgcf-docker-socks5 -4
+
+
+
+# wgcf-docker origin doc
 CloudFlare warp in docker
 
 
@@ -29,7 +42,7 @@ docker run --rm -it \
     --privileged --cap-add net_admin \
     -v /lib/modules:/lib/modules \
     -v $(pwd)/wgcf:/wgcf \
-    neilpang/wgcf-docker  -4 
+    neilpang/wgcf-docker  -4
 
 
 
@@ -43,7 +56,7 @@ docker run --rm -it \
     --privileged --cap-add net_admin \
     -v /lib/modules:/lib/modules \
     -v $(pwd)/wgcf:/wgcf \
-    neilpang/wgcf-docker  -6 
+    neilpang/wgcf-docker  -6
 
 
 
