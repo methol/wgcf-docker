@@ -61,18 +61,18 @@ runwgcf() {
     _checkV6
   fi
 
-  echo 
+  echo
   echo "OK, wgcf is up."
   
 
-  sleep infinity & wait
+  gost -L socks5://:1080
   
   
 }
 
 _checkV4() {
   echo "Checking network status, please wait...."
-  while ! curl --max-time 2  ipinfo.io; do
+  while ! curl --max-time 2 ipv4.ip.sb; do
     wg-quick down wgcf
     echo "Sleep 2 and retry again."
     sleep 2
@@ -84,7 +84,7 @@ _checkV4() {
 
 _checkV6() {
   echo "Checking network status, please wait...."
-  while ! curl --max-time 2 -6 ipv6.google.com; do
+  while ! curl --max-time 2 -6 ipv6.ip.sb; do
     wg-quick down wgcf
     echo "Sleep 2 and retry again."
     sleep 2
