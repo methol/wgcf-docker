@@ -1,3 +1,4 @@
+# wgcf-docker
 1. Run a single container
 
 ```
@@ -9,6 +10,11 @@ docker run --name wgcf \
     -v $(pwd)/wgcf:/wgcf \
     -p 1080:1080 \
     -d methol/wgcf-docker-socks5 -4
+```
+
+2. Test
+```
+curl --proxy socks5h://127.0.0.1:1080 "https://www.cloudflare.com/cdn-cgi/trace"
 ```
 
 
